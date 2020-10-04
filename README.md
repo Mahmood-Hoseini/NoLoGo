@@ -6,6 +6,12 @@ Greeking out logos and trademarks are is the of physically obscuring company log
 
 Google slides for the project can be found **here**
 
+## Overview of the project:
+Deep greeking is implemented in two steps:
+
+- Logo Detection using YOLOv5 pytorch model trained on [OpenLogo](https://qmul-openlogo.github.io/) dataset
+- Inpaint logo area using [generative image inpainting with contextual attention](https://arxiv.org/abs/1801.07892)
+
 ## Prerequisites
 This code has been tested on Ubuntu 18.04 and the following are the main components that need to be installed:
 - Python3
@@ -17,6 +23,9 @@ This code has been tested on Ubuntu 18.04 and the following are the main compone
 - torchvision 0.6.0
 
 ## Logo detection using YOLOv5
+
+**Preparing Dataset**: Once you get the labeled OpenLogo dataset, generate annotations in YOLO format (see this [notebook]()), and divide it into 80% training set, 10% validation set, and 10 % in the testing set.
+
 
 ## Generative image inpainting
 A PyTorch reimplementation for the paper [Generative Image Inpainting with Contextual Attention](https://arxiv.org/abs/1801.07892) according to the author's [TensorFlow implementation](https://github.com/JiahuiYu/generative_inpainting).
@@ -62,3 +71,9 @@ With PyTorch, the model was trained on ImageNet for 430k iterations to converge 
 | [![val_00022355_input](examples/imagenet/imagenet_patches_ILSVRC2012_val_00022355_input.png)](examples/imagenet/imagenet_patches_ILSVRC2012_val_00022355_input.png)  | [![val_00022355_output](examples/imagenet/imagenet_patches_ILSVRC2012_val_00022355_output.png)](examples/imagenet/imagenet_patches_ILSVRC2012_val_00022355_output.png) |
 | [![val_00025892_input](examples/imagenet/imagenet_patches_ILSVRC2012_val_00025892_input.png)](examples/imagenet/imagenet_patches_ILSVRC2012_val_00025892_input.png)  | [![val_00025892_output](examples/imagenet/imagenet_patches_ILSVRC2012_val_00025892_output.png)](examples/imagenet/imagenet_patches_ILSVRC2012_val_00025892_output.png) |
 | [![val_00045643_input](examples/imagenet/imagenet_patches_ILSVRC2012_val_00045643_input.png)](examples/imagenet/imagenet_patches_ILSVRC2012_val_00045643_input.png)  | [![val_00045643_output](examples/imagenet/imagenet_patches_ILSVRC2012_val_00045643_output.png)](examples/imagenet/imagenet_patches_ILSVRC2012_val_00045643_output.png) |
+
+## References:
+
+1. Jiahui Yu, Zhe Lin, Jimei Yang, Xiaohui Shen, Xin Lu, Thomas Huang. 2018. Generative Image Inpainting with Contextual Attention. arXiv preprint arXiv:1801.07892.
+
+
