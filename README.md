@@ -4,6 +4,8 @@
 Greeking out logos and trademarks are is the of physically obscuring company logos. That’s a reference to the phrase “Greek to me,” because the final version is unrecognizable. Having company logos in an image/video is not always desirable especially for celebrities as well as film/TV show production companies. Social media bloggers and celebrities do not want to give away free ads and therefore are always concerned what logos are visible in their social media posts. While showing logos and labels in a TV show is not illegal, production companies are going to err on the side of extreme caution. On reality TV, where budgets are tight, the greeking process often occurs on the scene during filming, with tape or markers which is often comical and makes logos/labels more noticeable. Ted Allen revealed in an interview, “We have a graphic designer who sits there right next to the Chopped kitchen and prints out with this elaborate printer all of these crazy labels that she’s designed." Hereby, I created a deep learning pipeline that can automatically detect logos/labels from images/videos and replace them with the context of the image/video.
 
 Google slides for the project can be found [here]().
+A simple [Streamlit frontend]() was designed that receives images/videos and returns inpainted output.
+[![]()]()
 
 ## Overview of the project:
 Deep greeking is implemented in two steps:
@@ -43,32 +45,34 @@ A PyTorch reimplementation for the paper [Generative Image Inpainting with Conte
 cd DeepGreek/genImgInpainting/
 python train.py --config ./configs/config.yaml
 ```
-The checkpoints and logs will be saved to `checkpoints`.
+With PyTorch, the model was trained on the dataset 500,000 iterations (with batch_size 64, ~80 hrs). The checkpoints and logs will be saved to `checkpoints`.
 
 **Testing**: Test the latest saved model on a single image/video by runing:
 ```bash
 python test_single.py --image ../data/sample_img.jpg --mask ../data/sample_mask.jpg --output ../data/output_img.jpg
 ```
-
 To test the latest saved model in batch run:
 ```bash
 python test_batch.py --image ../data/ --output ../data/outputs/
 ```
 
 ## Detect and inpaint
-Now we can put everything together.
+Now we can put everything together by running:
+```bash
+cd ./DeepGreek/
+python detect_and_inpaint.py --
+```
 
-## Test results on ImageNet validation set patches
-
-With PyTorch, the model was trained on ImageNet for 430k iterations to converge (with batch_size 48, about 150h). Here are some test results on the patches from ImageNet validation set.
+## Test results
+Here are some test results
 
 | Input | Detected | Inpainted |
 |:---:|:---:|:---:|
-| [![val_00000827_input]()]()  | [![val_00000827_output]()]() |
-| [![val_00008210_input]()]()  | [![val_00008210_output]()]() |
-| [![val_00022355_input]()]()  | [![val_00022355_output]()]() |
-| [![val_00025892_input]()]()  | [![val_00025892_output]()]() |
-| [![val_00045643_input]()]()  | [![val_00045643_output]()]() |
+| [![]()]()  | [![]()]() | [![]()]() |
+| [![]()]()  | [![]()]() | [![]()]() |
+| [![]()]()  | [![]()]() | [![]()]() |
+| [![]()]()  | [![]()]() | [![]()]() |
+| [![]()]()  | [![]()]() | [![]()]() |
 
 ## References:
 1. Jiahui Yu, Zhe Lin, Jimei Yang, Xiaohui Shen, Xin Lu, Thomas Huang. 2018. Generative Image Inpainting with Contextual Attention. [link](https://arxiv.org/abs/1801.07892).
