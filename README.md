@@ -1,3 +1,9 @@
+[![build status](https://img.shields.io/badge/build-passing-green.svg)]()
+
+[![build status](https://img.shields.io/badge/made%20with-python-cyan.svg)](https://www.python.org/)
+[![version](https://img.shields.io/badge/PyTorch%20-%23EE4C2C.svg?&style=for-the-badge&logo=PyTorch&logoColor=white)](https://img.shields.io/badge/PyTorch%20-%23EE4C2C.svg?&style=for-the-badge&logo=PyTorch&logoColor=white)
+[![build status](https://img.shields.io/badge/opencv-v4.2.0.34-gold.svg)](https://pypi.org/project/opencv-python/)
+
 # DeepGreek: smart logo replacement using image inpainting
 
 ## Motivation
