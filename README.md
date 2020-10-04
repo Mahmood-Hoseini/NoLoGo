@@ -25,14 +25,12 @@ This code has been tested on Ubuntu 18.04 and the following are the main compone
 **Preparing Dataset**: Once you get the labeled OpenLogo dataset, generate annotations in YOLO format (see this [notebook]()), divide it into 80% training set, 10% validation set, and 10 % in the testing set, and modify `./yolov5/data/LOGO.yaml` file by adding appropriate data paths
 
 **Training**: Here, I'm using small version of YOLO. To train it just run:
-
 ```bash
 cd DeepGreek/yolov5/
 python train.py --img 512 --batch 16 --epochs 100 --data ./data/LOGO.yaml --cfg ./models/yolov5s.yaml --weights '' --device 0
 ```
 
 **Testing**: Now that the model has been trained, you can test its performance:
-
 ```bash
 python detect.py --source ./data/test-logo  --weights ./weights/best.pt --conf 0.3 --save-txt
 ```
@@ -40,53 +38,39 @@ python detect.py --source ./data/test-logo  --weights ./weights/best.pt --conf 0
 ## Generative image inpainting
 A PyTorch reimplementation for the paper [Generative Image Inpainting with Contextual Attention](https://arxiv.org/abs/1801.07892) according to the author's [TensorFlow implementation](https://github.com/JiahuiYu/generative_inpainting). Also see this [github repository](https://github.com/daa233/generative-inpainting-pytorch).
 
-**Train the model**: To train the inpainting model, first modify config.yaml file. To be able to process any image/video size while keeping the training doable, set `image_shape: [256, 256, 3]` and chunk any input image into appropriate size (see this [notebook]() and [Image_chunker.py]()). To train run:
+**Training**: To train the inpainting model, first modify config.yaml file. To be able to process any image/video size while keeping the training doable, set `image_shape: [256, 256, 3]` and chunk any input image into appropriate size (see this [notebook]() and [Image_chunker.py]()). To train run:
 ```bash
-
 cd DeepGreek/genImgInpainting/
 python train.py --config ./configs/config.yaml
 ```
 The checkpoints and logs will be saved to `checkpoints`.
 
-## Test with the trained model
-By default, it will load the latest saved model in the checkpoints. You can also use `--iter` to choose the saved models by iteration.
-
-Trained PyTorch model: [[Google Drive](https://drive.google.com/open?id=1qbfA5BP9yzdTFFmiOTvYARUYgW1zwBBK)] [[Baidu Wangpan](https://pan.baidu.com/s/17HzpiqMPLIznvCWBfpNVGw)]
-
+**Testing**: Test the latest saved model on a single image/video by runing:
 ```bash
-python test_single.py \
-	--image examples/imagenet/imagenet_patches_ILSVRC2012_val_00008210_input.png \
-	--mask examples/center_mask_256.png \
-	--output examples/output.png
+python test_single.py --image ../data/sample_img.jpg --mask ../data/sample_mask.jpg --output ../data/output_img.jpg
 ```
 
-## Test with the converted TF model:
-Converted TF model: [[Google Drive](https://drive.google.com/file/d/1vz2Qp12_iwOiuvLWspLHrC1UIuhSLojx/view?usp=sharing)]
-
+To test the latest saved model in batch run:
 ```bash
-python test_tf_model.py \
-	--image examples/imagenet/imagenet_patches_ILSVRC2012_val_00008210_input.png \
-	--mask examples/center_mask_256.png \
-	--output examples/output.png \
-	--model-path torch_model.p
+python test_batch.py --image ../data/ --output ../data/outputs/
 ```
+
+## Detect and inpaint
+Now we can put everything together.
 
 ## Test results on ImageNet validation set patches
 
 With PyTorch, the model was trained on ImageNet for 430k iterations to converge (with batch_size 48, about 150h). Here are some test results on the patches from ImageNet validation set.
 
-| Input | Inpainted |
-|:---:|:---:|
-| [![val_00000827_input](examples/imagenet/imagenet_patches_ILSVRC2012_val_00000827_input.png)](examples/imagenet/imagenet_patches_ILSVRC2012_val_00000827_input.png)  | [![val_00000827_output](examples/imagenet/imagenet_patches_ILSVRC2012_val_00000827_output.png)](examples/imagenet/imagenet_patches_ILSVRC2012_val_00000827_output.png) |
-| [![val_00008210_input](examples/imagenet/imagenet_patches_ILSVRC2012_val_00008210_input.png)](examples/imagenet/imagenet_patches_ILSVRC2012_val_00008210_input.png)  | [![val_00008210_output](examples/imagenet/imagenet_patches_ILSVRC2012_val_00008210_output.png)](examples/imagenet/imagenet_patches_ILSVRC2012_val_00008210_output.png) |
-| [![val_00022355_input](examples/imagenet/imagenet_patches_ILSVRC2012_val_00022355_input.png)](examples/imagenet/imagenet_patches_ILSVRC2012_val_00022355_input.png)  | [![val_00022355_output](examples/imagenet/imagenet_patches_ILSVRC2012_val_00022355_output.png)](examples/imagenet/imagenet_patches_ILSVRC2012_val_00022355_output.png) |
-| [![val_00025892_input](examples/imagenet/imagenet_patches_ILSVRC2012_val_00025892_input.png)](examples/imagenet/imagenet_patches_ILSVRC2012_val_00025892_input.png)  | [![val_00025892_output](examples/imagenet/imagenet_patches_ILSVRC2012_val_00025892_output.png)](examples/imagenet/imagenet_patches_ILSVRC2012_val_00025892_output.png) |
-| [![val_00045643_input](examples/imagenet/imagenet_patches_ILSVRC2012_val_00045643_input.png)](examples/imagenet/imagenet_patches_ILSVRC2012_val_00045643_input.png)  | [![val_00045643_output](examples/imagenet/imagenet_patches_ILSVRC2012_val_00045643_output.png)](examples/imagenet/imagenet_patches_ILSVRC2012_val_00045643_output.png) |
+| Input | Detected | Inpainted |
+|:---:|:---:|:---:|
+| [![val_00000827_input]()]()  | [![val_00000827_output]()]() |
+| [![val_00008210_input]()]()  | [![val_00008210_output]()]() |
+| [![val_00022355_input]()]()  | [![val_00022355_output]()]() |
+| [![val_00025892_input]()]()  | [![val_00025892_output]()]() |
+| [![val_00045643_input]()]()  | [![val_00045643_output]()]() |
 
 ## References:
-
 1. Jiahui Yu, Zhe Lin, Jimei Yang, Xiaohui Shen, Xin Lu, Thomas Huang. 2018. Generative Image Inpainting with Contextual Attention. [link](https://arxiv.org/abs/1801.07892).
-
 2. Guilin Liu, Fitsum A. Reda, Kevin J. Shih, Ting-Chun Wang, Andrew Tao, Bryan Catanzaro. 2018. Image Inpainting for Irregular Holes Using Partial Convolutions. [link](https://arxiv.org/abs/1804.07723).
-
 3. New AI Imaging Technique Reconstructs Photos with Realistic Results [link](https://news.developer.nvidia.com/new-ai-imaging-technique-reconstructs-photos-with-realistic-results/?ncid=nv-twi-37107).
