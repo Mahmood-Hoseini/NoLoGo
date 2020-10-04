@@ -1,26 +1,25 @@
-# DeepGreek
-### smart logo replacement using generative image inpainting
+# DeepGreek: smart logo replacement using generative image inpainting
 
+## Motivation
 
+Greeking out logos and trademarks are is the of physically obscuring company logos. That’s a reference to the phrase “Greek to me,” because the final version is unrecognizable. Having company logos in an image/video is not always desirable especially for celebrities as well as film/TV show production companies. Social media bloggers and celebrities do not want to give away free ads and therefore are always concerned what logos are visible in their social media posts. While showing logos and labels in a TV show is not illegal, production companies are going to err on the side of extreme caution. On reality TV, where budgets are tight, the greeking process often occurs on the scene during filming, with tape or markers which is often comical and makes logos/labels more noticeable. Ted Allen revealed in an interview, “We have a graphic designer who sits there right next to the Chopped kitchen and prints out with this elaborate printer all of these crazy labels that she’s designed." Hereby, I created a deep learning pipeline that can automatically detect logos/labels from images/videos and replace them with the context of the image/video.
 
-# generative-inpainting-pytorch
-A PyTorch reimplementation for the paper [Generative Image Inpainting with Contextual Attention](https://arxiv.org/abs/1801.07892) according to the author's [TensorFlow implementation](https://github.com/JiahuiYu/generative_inpainting).
+Google slides for the project can be found **here**
 
 ## Prerequisites
 This code has been tested on Ubuntu 18.04 and the following are the main components that need to be installed:
 - Python3
 - matplotlib 
-- numpy==1.17.0
-- Pillow 
-- pycocotools 
-- pyOpenSSL 
-- PyYAML==5.3.1
-- scipy==1.4.1
-- tensorboard==2.2.1
-- torch==1.5.0
-- torchvision==0.6.0
-- tqdm 
-- urllib3
+- numpy 1.17.0
+- scipy 1.4.1
+- tensorboard 2.2.1
+- torch 1.5.0
+- torchvision 0.6.0
+
+## Logo detection using YOLOv5
+
+## Generative image inpainting
+A PyTorch reimplementation for the paper [Generative Image Inpainting with Contextual Attention](https://arxiv.org/abs/1801.07892) according to the author's [TensorFlow implementation](https://github.com/JiahuiYu/generative_inpainting).
 
 ## Train the model
 ```bash
