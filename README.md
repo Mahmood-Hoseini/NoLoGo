@@ -41,12 +41,11 @@ python detect.py --source ./data/test-logo  --weights ./weights/best.pt --conf 0
 A PyTorch reimplementation for the paper [Generative Image Inpainting with Contextual Attention](https://arxiv.org/abs/1801.07892) according to the author's [TensorFlow implementation](https://github.com/JiahuiYu/generative_inpainting). Also see this [github repository](https://github.com/daa233/generative-inpainting-pytorch).
 
 **Train the model**: To train the inpainting model, first modify config.yaml file. To be able to process any image/video size while keeping the training doable, set `image_shape: [256, 256, 3]` and chunk any input image into appropriate size (see this [notebook]() and [Image_chunker.py]()). To train run:
-
 ```bash
+
 cd DeepGreek/genImgInpainting/
 python train.py --config ./configs/config.yaml
 ```
-
 The checkpoints and logs will be saved to `checkpoints`.
 
 ## Test with the trained model
