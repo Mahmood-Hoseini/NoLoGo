@@ -1,0 +1,9 @@
+train: /home/idl/Documents/InsightProject/yolov5/data/train-logo.txt
+val: /home/idl/Documents/InsightProject/yolov5/data/val-logo.txt  
+test: /home/idl/Documents/InsightProject/yolov5/data/test-logo.txt 
+
+# number of classes
+nc: 1
+
+# class names
+names: ['logo']
