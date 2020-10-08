@@ -15,7 +15,7 @@ from torch.utils.data import Dataset
 from tqdm import tqdm
 
 img_formats = ['.bmp', '.jpg', '.jpeg', '.png', '.tif', '.dng']
-vid_formats = ['.mov', '.avi', '.mp4']
+vid_formats = ['.mov', '.avi', '.mp4', '.webm']
 
 
 class LoadImages: 

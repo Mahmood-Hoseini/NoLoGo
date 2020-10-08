@@ -34,6 +34,7 @@ parser.add_argument('--flow', type=str, default='')
 parser.add_argument('--checkpoint_path', type=str, default='')
 parser.add_argument('--iter', type=int, default=0)
 parser.add_argument('--overlap', type=int, default=0)
+parser.add_argument('--fourcc', type=str, default='VP90')
 
 def main():
     args = parser.parse_args()
@@ -149,7 +150,7 @@ def main():
                         fps = vid_cap.get(cv2.CAP_PROP_FPS)
                         w = int(vid_cap.get(cv2.CAP_PROP_FRAME_WIDTH))
                         h = int(vid_cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-                        vid_writer = cv2.VideoWriter(outpath, cv2.VideoWriter_fourcc(*'XVID'), fps, (w, h))
+                        vid_writer = cv2.VideoWriter(outpath, cv2.VideoWriter_fourcc(*args.fourcc), fps, (w, h))
                     vid_writer.write(reconstructed_image)
                     prev_fname = fpath                
     # exit no grad context

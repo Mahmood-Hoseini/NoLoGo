@@ -1,9 +1,7 @@
 
-matplotlib 
+matplotlib==3.3.1 
 numpy==1.17.0
-Pillow 
 pycocotools 
-pyOpenSSL 
 PyYAML==5.3.1
 scipy==1.4.1
 tensorboard==2.2.1
@@ -11,3 +9,8 @@ torch==1.5.0
 torchvision==0.6.0
 tqdm 
 urllib3
+opencv-python
+pillow==7.2.0            
+pyyaml==5.3.1
+streamlit
+streamlit-nightly

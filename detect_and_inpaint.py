@@ -27,7 +27,7 @@ if __name__ == '__main__':
     parser.add_argument('--yoloImgSize', type=int, default=640, help='inference size (pixels)')
     parser.add_argument('--conf', type=float, default=0.3, help='object confidence threshold')
     parser.add_argument('--iou', type=float, default=0.5, help='IOU threshold for NMS')
-    parser.add_argument('--fourcc', type=str, default='mp4v', help='output video codec (verify ffmpeg support)')
+    parser.add_argument('--fourcc', type=str, default='VP90', help='output video codec (verify ffmpeg support)')
     parser.add_argument('--device', default='', help='cuda device, i.e. 0 or 0,1,2,3 or cpu')
     parser.add_argument('--save-txt', action='store_true', help='save results to *.txt')
     parser.add_argument('--classes', nargs='+', type=int, help='filter by class')
