@@ -34,7 +34,7 @@ parser.add_argument('--flow', type=str, default='')
 parser.add_argument('--checkpoint_path', type=str, default='')
 parser.add_argument('--iter', type=int, default=0)
 parser.add_argument('--overlap', type=int, default=0)
-parser.add_argument('--fourcc', type=str, default='VP90')
+parser.add_argument('--fourcc', type=str, default='mp4v')
 
 def main():
     args = parser.parse_args()

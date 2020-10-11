@@ -8,6 +8,7 @@ import io
 import glob
 import shutil
 from streamlit import caching
+import base64
 
 # os.chdir('/home/idl/Documents/NoLoGo')
 
@@ -16,22 +17,50 @@ warnings.filterwarnings('ignore')
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
 
-@st.cache(allow_output_mutation=False)
-def get_cap(location):
-    print("Loading in function", str(location))
-    video_stream = cv2.VideoCapture(str(location))
+@st.cache(allow_output_mutation=True)
+def get_base64_of_bin_file(bin_file):
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
 
-    # Check if camera opened successfully
-    if (video_stream.isOpened() == False):
-        print("Error opening video  file")
-    return video_stream
+def set_png_as_page_bg(png_file):
+    bin_str = get_base64_of_bin_file(png_file)
+    page_bg_img = '''
+    <style>
+    body {
+    background-image: url("data:image/png;base64,%s");
+    background-size: cover;
+    }
+    </style>
+    ''' % bin_str
+    
+    st.markdown(page_bg_img, unsafe_allow_html=True)
+    return
 
 
-st.write('# NoLoGo: Logo Filtering')
+st.markdown(
+    f"""
+    <style>
+    .reportview-container .main .block-container{{
+    max-width: 1000px;
+    padding-top: 2.0rem;
+    padding-right: 2.0rem;
+    padding-left: 2.0rem;
+    padding-bottom: 2.0rem;
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
-caching.clear_cache()
+set_png_as_page_bg("./background.png")
+logo = open("./nologo.png", 'rb').read()
+st.image(logo, width=200)
+st.write('## Smart Logo Replacement Using Image Inpainting')
+
 st.write('<style>div.Widget.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 mode = st.sidebar.radio("input type: ", ("image", "video"))
+caching.clear_cache()
 
 confidence_value = st.sidebar.slider('Confidence:', 0.0, 1.0, 0.2, 0.05)
 if mode == "image" :
@@ -68,12 +97,12 @@ if mode == "image" :
         det_file = glob.glob(out_loc + '*-det.jpg')[0]
         det_img = cv2.imread(det_file)
         image1 = cv2.cvtColor(det_img, cv2.COLOR_BGR2RGB)
-        st.image(image1, caption='logos detected', width=500)
+        c1.image(image1, caption='logos detected', width=400)
 
         inp_file = glob.glob(out_loc + '*-inp.jpg')[0]
         inp_img = cv2.imread(inp_file)
         image2 = cv2.cvtColor(inp_img, cv2.COLOR_BGR2RGB)
-        st.image(image2, caption='inpainted', width=500)
+        c2.image(image2, caption='inpainted', width=400)
     
 elif mode == "video" :
     up_vid = st.sidebar.file_uploader("Choose a video", type=['mov', 'avi', 'mp4'])
@@ -87,7 +116,7 @@ elif mode == "video" :
         os.makedirs(temp_loc)
         os.makedirs(out_loc)
 
-        with open(temp_loc+"testout_vid.webm", 'wb') as out:  ## Open temporary file as bytes
+        with open(temp_loc+"testout_vid.mp4", 'wb') as out:  ## Open temporary file as bytes
             out.write(g.read())  ## Read bytes into file
 
         # video2 = open("/home/idl/Documents/DeepGreek/data/OUT.webm", 'rb').read()
@@ -107,14 +136,12 @@ elif mode == "video" :
         os.chdir('../')
         c1, c2 = st.beta_columns(2)
         out_loc = './data/tmp_output/'
-        det_file = glob.glob(out_loc + '*-det.webm')[0]
-        # web_det_file = det_file[:-3] + "webm"
-        # os.system(f"ffmpeg -i {det_file} -f webm -vcodec libvpx -ab 128000 {web_det_file}")
-        video1 = open(det_file, 'rb').read()
+        det_file = glob.glob(out_loc + '*-det.mp4')[0]
+        os.system(f"ffmpeg -i {det_file} -vcodec libx264 {det_file.replace('-det.', '-det2.')}")
+        video1 = open(det_file.replace('-det.', '-det2.'), 'rb').read()
         c1.video(video1)
 
-        inp_file = glob.glob(out_loc + '*-inp.webm')[0]
-        # web_inp_file = inp_file[:-3] + "webm"
-        # os.system(f"ffmpeg -i {inp_file} -f webm -vcodec libvpx -ab 128000 {web_inp_file}")
-        video2 = open(inp_file, 'rb').read()
+        inp_file = glob.glob(out_loc + '*-inp.mp4')[0]
+        os.system(f"ffmpeg -i {inp_file} -vcodec libx264 {inp_file.replace('-inp.', '-inp2.')}")
+        video2 = open(inp_file.replace('-inp.', '-inp2.'), 'rb').read()
         c2.video(video2)
