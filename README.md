@@ -76,7 +76,7 @@ Now we can put everything together by running:
 cd ./NoLoGo/
 python detect_and_inpaint.py --
 ```
-To run th streamlit webapp execute `streamlit run stWebApp_withSavingFiles.py`. Here's a [demo]() video.
+To run th streamlit webapp execute `streamlit run stWebApp_withSavingFiles.py`. Here's a [demo](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/Demo.mp4) video.
 
 ## Test results
 Here are some test results
