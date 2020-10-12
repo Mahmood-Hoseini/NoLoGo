@@ -11,7 +11,7 @@ Having company logos in an image/video is not always desirable especially for ce
 
 Google slides for the project can be found [here]().
 
-A simple [Streamlit frontend]() was designed that receives images/videos and returns inpainted output.
+A simple [Streamlit frontend](http://54.67.95.39:8501/) was designed that receives images/videos and returns inpainted output.
 [![]()]()
 
 ## Overview of the project:
@@ -35,7 +35,7 @@ This code has been tested on Ubuntu 18.04 and the following are the main compone
 
 **Training**: Here, I'm using small version of YOLO. To train it just run:
 ```bash
-cd DeepGreek/yolov5/
+cd NoLoGo/yolov5/
 python train.py --img 512 --batch 16 --epochs 100 --data ./data/LOGO.yaml --cfg ./models/yolov5s.yaml --weights '' --device 0
 ```
 
@@ -49,10 +49,10 @@ A PyTorch reimplementation for the paper [Generative Image Inpainting with Conte
 
 **Training**: To train the inpainting model, first modify config.yaml file. To be able to process any image/video size while keeping the training doable, set `image_shape: [256, 256, 3]` and chunk any input image into appropriate size (see this [notebook]() and [Image_chunker.py]()). To train run:
 ```bash
-cd DeepGreek/genImgInpainting/
+cd NoLoGo/genImgInpainting/
 python train.py --config ./configs/config.yaml
 ```
-With PyTorch, the model was trained on the dataset 500,000 iterations (with batch_size 64, ~80 hrs). The checkpoints and logs will be saved to `checkpoints`.
+With PyTorch, the model was trained on the dataset 500,000 iterations (with batch_size 64, ~80 hrs). The checkpoints and logs will be saved to `cpts`.
 
 **Testing**: Test the latest saved model on a single image/video by runing:
 ```bash
@@ -66,7 +66,7 @@ python test_batch.py --image ../data/ --output ../data/outputs/
 ## Detect and inpaint
 Now we can put everything together by running:
 ```bash
-cd ./DeepGreek/
+cd ./NoLoGo/
 python detect_and_inpaint.py --
 ```
 
@@ -75,11 +75,11 @@ Here are some test results
 
 | Input | Detected | Inpainted |
 |:---:|:---:|:---:|
-| [![]()]()  | [![]()]() | [![]()]() |
-| [![]()]()  | [![]()]() | [![]()]() |
-| [![]()]()  | [![]()]() | [![]()]() |
-| [![]()]()  | [![]()]() | [![]()]() |
-| [![]()]()  | [![]()]() | [![]()]() |
+| [![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2105646918.jpg)]()  | [![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2105646918-det.jpg)]() | [![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2105646918-inp.jpg)]() |
+| [![]()](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2659660776.jpg)  | [![]()](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2659660776-det.jpg) | [![]()](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2659660776-inp.jpg) |
+| [![]()](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/5077581837.jpg)  | [![]()](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/5077581837-det.jpg) | [![]()](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/5077581837-inp.jpg) |
+| [![]()](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/898312343.jpg)  | [![]()](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/898312343-det.jpg) | [![]()](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/898312343-inp.jpg) |
+| [![]()](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/logos32plus_000573.jpg)  | [![]()](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/logos32plus_000573-det.jpg) | [![]()](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/logos32plus_000573-inp.jpg) |
 
 ## References:
 1. Jiahui Yu, Zhe Lin, Jimei Yang, Xiaohui Shen, Xin Lu, Thomas Huang. 2018. Generative Image Inpainting with Contextual Attention. [link](https://arxiv.org/abs/1801.07892).
