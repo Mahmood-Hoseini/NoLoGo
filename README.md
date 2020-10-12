@@ -21,7 +21,7 @@ NoLoGo is implemented in two steps:
 - Inpaint logo area using [generative image inpainting with contextual attention](https://arxiv.org/abs/1801.07892)
 
 ## Prerequisites
-This code has been tested on Ubuntu 18.04 and the following are the main components that need to be installed:
+This code has been tested on Ubuntu 18.04 and the following are the main components that need to be installed (see requirements.txt):
 - Python3
 - matplotlib 
 - numpy 1.17.0
@@ -76,7 +76,7 @@ Now we can put everything together by running:
 cd ./NoLoGo/
 python detect_and_inpaint.py --
 ```
-To run th streamlit webapp execute `streamlit run stWebApp_withSavingFiles.py`.
+To run th streamlit webapp execute `streamlit run stWebApp_withSavingFiles.py`. Here's a [demo]() video.
 
 ## Test results
 Here are some test results
