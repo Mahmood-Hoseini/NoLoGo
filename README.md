@@ -39,7 +39,8 @@ This code has been tested on Ubuntu 18.04 and the following are the main compone
 **Training**: Here, I'm using small version of YOLO. To train it just run:
 ```bash
 cd NoLoGo/yolov5/
-python train.py --img 512 --batch 16 --epochs 100 --data ./data/LOGO.yaml --cfg ./models/yolov5s.yaml --weights '' --device 0
+python train.py --img 512 --batch 16 --epochs 100 --data ./data/LOGO.yaml\
+                --cfg ./models/yolov5s.yaml --weights '' --device 0
 ```
 
 **Testing**: Now that the model has been trained, you can test its performance:
@@ -82,7 +83,7 @@ Here are some test results
 
 | Input | Detected | Inpainted |
 |:---:|:---:|:---:|
-| ![img1](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2105646918.jpg)  | ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2105646918-det.jpg) | ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2105646918-inp.jpg) |
+| ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2105646918.jpg)  | ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2105646918-det.jpg) | ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2105646918-inp.jpg) |
 | ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2659660776.jpg)  | ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2659660776-det.jpg) | ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2659660776-inp.jpg) |
 | ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/5077581837.jpg)  | ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/5077581837-det.jpg) | ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/5077581837-inp.jpg) |
 | ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/898312343.jpg)  | ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/898312343-det.jpg) | ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/898312343-inp.jpg) |
