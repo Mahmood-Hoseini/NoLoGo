@@ -12,7 +12,7 @@ Having company logos in an image/video is not always desirable especially for ce
 Google slides for the project can be found [here]().
 
 A simple [Streamlit frontend](http://54.67.95.39:8501/) was designed that receives images/videos and returns inpainted output.
-[![]()]()
+![]()
 
 ## Overview of the project:
 Deep greeking is implemented in two steps:
@@ -75,11 +75,11 @@ Here are some test results
 
 | Input | Detected | Inpainted |
 |:---:|:---:|:---:|
-| [![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2105646918.jpg)]()  | [![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2105646918-det.jpg)]() | [![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2105646918-inp.jpg)]() |
-| [![]()](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2659660776.jpg)  | [![]()](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2659660776-det.jpg) | [![]()](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2659660776-inp.jpg) |
-| [![]()](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/5077581837.jpg)  | [![]()](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/5077581837-det.jpg) | [![]()](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/5077581837-inp.jpg) |
-| [![]()](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/898312343.jpg)  | [![]()](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/898312343-det.jpg) | [![]()](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/898312343-inp.jpg) |
-| [![]()](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/logos32plus_000573.jpg)  | [![]()](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/logos32plus_000573-det.jpg) | [![]()](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/logos32plus_000573-inp.jpg) |
+| ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2105646918.jpg)  | ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2105646918-det.jpg) | ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2105646918-inp.jpg) |
+| ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2659660776.jpg)  | ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2659660776-det.jpg) | ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/2659660776-inp.jpg) |
+| ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/5077581837.jpg)  | ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/5077581837-det.jpg) | ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/5077581837-inp.jpg) |
+| ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/898312343.jpg)  | ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/898312343-det.jpg) | ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/898312343-inp.jpg) |
+| ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/logos32plus_000573.jpg)  | ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/logos32plus_000573-det.jpg) | ![](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/data/outputs/logos32plus_000573-inp.jpg) |
 
 ## References:
 1. Jiahui Yu, Zhe Lin, Jimei Yang, Xiaohui Shen, Xin Lu, Thomas Huang. 2018. Generative Image Inpainting with Contextual Attention. [link](https://arxiv.org/abs/1801.07892).
