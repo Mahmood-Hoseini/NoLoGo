@@ -12,7 +12,7 @@ Having company logos in an image/video is not always desirable especially for ce
 Google slides for the project can be found [here](https://docs.google.com/presentation/d/1zeWUrgL25nQvZic-l-hdXLsXnGBdtkK04DWaZ5r5QCs/edit?usp=sharing).
 
 A simple [Streamlit frontend](http://52.53.171.72:8501/) was designed that receives images/videos and returns inpainted output.
-![]()
+![Web App Screenshot](https://github.com/Mahmood-Hoseini/NoLoGo/blob/master/webapp_screenshot.png)
 
 ## Overview of the project:
 NoLoGo is implemented in two steps:
